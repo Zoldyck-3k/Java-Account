@@ -1,0 +1,23 @@
+name: Java CI
+
+on: [push, pull_request]  # Runs on every push or PR
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Runs on a Linux virtual machine
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '17'  # Change version if needed
+
+      - name: Compile Java Program
+        run: javac YourJavaFile.java  # Replace with your Java file name
+
+      - name: Run Java Program
+        run: java YourJavaFile  # Replace with your Java file name (without .java)
